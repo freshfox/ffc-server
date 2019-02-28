@@ -47,5 +47,4 @@ export abstract class HttpServer extends Server {
 export interface HttpServiceConfig {
 	viewHelpers?: any;
 	corsWhitelist?: string[];
-	port: number;
 }
