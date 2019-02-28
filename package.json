@@ -1,6 +1,6 @@
 {
   "name": "ffc-server",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Basic HTTP Server with FFC-Node and some default configs",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
