@@ -1,0 +1,22 @@
+{
+	"compilerOptions": {
+		"module": "commonjs",
+		"target": "es6",
+		"outDir": "./dist",
+		"lib": [
+			"es6"
+		],
+		"types": [
+			"node",
+			"mocha",
+			"reflect-metadata"
+		],
+		"sourceMap": true,
+		"rootDir": "./src",
+		"experimentalDecorators": true,
+		"emitDecoratorMetadata": true
+	},
+	"exclude": [
+		"node_modules"
+	]
+}
