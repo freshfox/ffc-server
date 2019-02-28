@@ -3,8 +3,20 @@
   "version": "1.0.0",
   "description": "Basic HTTP Server with FFC-Node and some default configs",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "author": "Freshfox OG",
   "license": "MIT",
+  "files": [
+    "dist/",
+    "src/",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "preversion": "yarn build",
+    "postversion": "git push && git push --tags && npm publish"
+  },
   "devDependencies": {
     "ffc-node": "^13.5.0",
     "typescript": "^3.3.3333"
