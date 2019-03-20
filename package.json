@@ -13,7 +13,7 @@
     "LICENSE"
   ],
   "scripts": {
-    "build": "tsc",
+    "build": "rm -rf dist && tsc",
     "preversion": "yarn build",
     "postversion": "git push && git push --tags && npm publish"
   },
