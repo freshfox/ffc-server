@@ -4,7 +4,6 @@ import * as bodyParser from 'body-parser';
 import * as compression from 'compression';
 import * as cookieParser from 'cookie-parser';
 import * as cors from 'cors';
-import * as path from "path";
 
 export abstract class HttpServer extends Server {
 
@@ -35,7 +34,7 @@ export abstract class HttpServer extends Server {
 		this.app.engine('json', viewEngine({
 			helpers: config.viewHelpers
 		}));
-		this.app.set('views', path.join(__dirname, '/views')); // specify the views directory
+		this.app.set('views', config.viewHelpers); // specify the views directory
 		this.app.set('view engine', 'json'); // register the template engine
 		this.app.set('view cache', true); // register the template engine
 	}
@@ -46,5 +45,6 @@ export abstract class HttpServer extends Server {
 
 export interface HttpServiceConfig {
 	viewHelpers?: any;
+	viewDirectory?: string;
 	corsWhitelist?: string[];
 }
