@@ -34,7 +34,7 @@ export abstract class HttpServer extends Server {
 		this.app.engine('json', viewEngine({
 			helpers: config.viewHelpers
 		}));
-		this.app.set('views', config.viewHelpers); // specify the views directory
+		this.app.set('views', config.viewDirectory); // specify the views directory
 		this.app.set('view engine', 'json'); // register the template engine
 		this.app.set('view cache', true); // register the template engine
 	}
