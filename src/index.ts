@@ -30,9 +30,7 @@ export abstract class HttpServer extends Server {
 				};
 
 			let corsOptions = {
-				origin: function (origin, callback) {
-
-				},
+				origin: originFunc,
 				credentials: true
 			};
 			this.app.use(cors(corsOptions));
