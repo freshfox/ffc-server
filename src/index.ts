@@ -20,11 +20,18 @@ export abstract class HttpServer extends Server {
 		// CORS Configuration
 		console.log(config);
 		if (config.corsWhitelist) {
+			let originFunc = (config.corsWhitelist === true)
+				? true
+				: (origin, callback) => {
+					console.log('Origin', origin);
+					const list: string[] = config.corsWhitelist as any;
+					let isOriginWhiteListed = list.indexOf(origin) !== -1;
+					callback(null, isOriginWhiteListed);
+				};
+
 			let corsOptions = {
 				origin: function (origin, callback) {
-					console.log(origin);
-					let isOriginWhiteListed = config.corsWhitelist.indexOf(origin) !== -1;
-					callback(null, isOriginWhiteListed);
+
 				},
 				credentials: true
 			};
@@ -48,5 +55,5 @@ export abstract class HttpServer extends Server {
 export interface HttpServiceConfig {
 	viewHelpers?: any;
 	viewDirectory?: string;
-	corsWhitelist?: string[];
+	corsWhitelist?: string[] | boolean;
 }
