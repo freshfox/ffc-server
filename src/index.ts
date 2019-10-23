@@ -18,12 +18,10 @@ export abstract class HttpServer extends Server {
 		this.app.use(cookieParser());
 
 		// CORS Configuration
-		console.log(config);
 		if (config.corsWhitelist) {
 			let originFunc = (config.corsWhitelist === true)
 				? true
 				: (origin, callback) => {
-					console.log('Origin', origin);
 					const list: string[] = config.corsWhitelist as any;
 					let isOriginWhiteListed = list.indexOf(origin) !== -1;
 					callback(null, isOriginWhiteListed);
