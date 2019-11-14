@@ -9,12 +9,14 @@
 		],
 		"types": [
 			"node",
-			"reflect-metadata"
+			"reflect-metadata",
+			"mocha"
 		],
 		"sourceMap": true,
 		"rootDir": "./src",
 		"experimentalDecorators": true,
-		"emitDecoratorMetadata": true
+		"emitDecoratorMetadata": true,
+		"esModuleInterop": true
 	},
 	"exclude": [
 		"node_modules"

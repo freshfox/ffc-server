@@ -2,8 +2,8 @@
   "name": "ffc-server",
   "version": "1.4.0",
   "description": "Basic HTTP Server with FFC-Node and some default configs",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/lib/index.js",
+  "types": "dist/lib/index.d.ts",
   "author": "Freshfox OG",
   "license": "MIT",
   "files": [
@@ -14,12 +14,19 @@
   ],
   "scripts": {
     "build": "rm -rf dist && tsc",
-    "preversion": "yarn build",
-    "postversion": "git push && git push --tags && npm publish"
+    "preversion": "git pull && yarn build",
+    "postversion": "git push --follow-tags && npm publish",
+    "test": "NODE_ENV=test mocha dist/test"
   },
   "devDependencies": {
+    "@types/mocha": "^5.2.7",
     "@types/node": "^12.12.7",
     "@types/reflect-metadata": "^0.1.0",
+    "@types/should": "^13.0.0",
+    "express": "^4.17.1",
+    "mocha": "^6.2.2",
+    "should": "^13.2.3",
+    "ts-node": "^8.5.0",
     "typescript": "^3.6.4"
   },
   "dependencies": {
