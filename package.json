@@ -14,7 +14,7 @@
   ],
   "scripts": {
     "build": "rm -rf dist && tsc",
-    "preversion": "git pull && yarn build",
+    "preversion": "git pull && yarn build && yarn test",
     "postversion": "git push --follow-tags && npm publish",
     "test": "NODE_ENV=test mocha dist/test"
   },
