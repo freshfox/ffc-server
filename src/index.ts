@@ -1,11 +1,11 @@
-import {Server} from 'ffc-node';
 import * as viewEngine from 'express-json-views';
 import * as bodyParser from 'body-parser';
 import * as compression from 'compression';
 import * as cookieParser from 'cookie-parser';
 import * as cors from 'cors';
+import {BaseServer} from "./base_server";
 
-export abstract class HttpServer extends Server {
+export abstract class HttpServer extends BaseServer {
 
 	configure() {
 		const config = this.getServerConfig();

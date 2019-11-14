@@ -18,11 +18,7 @@
     "postversion": "git push && git push --tags && npm publish"
   },
   "devDependencies": {
-    "ffc-node": "^15.4.0",
     "typescript": "^3.6.4"
-  },
-  "peerDependencies": {
-    "ffc-node": "^13.5.0"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
