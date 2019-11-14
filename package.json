@@ -18,6 +18,8 @@
     "postversion": "git push && git push --tags && npm publish"
   },
   "devDependencies": {
+    "@types/node": "^12.12.7",
+    "@types/reflect-metadata": "^0.1.0",
     "typescript": "^3.6.4"
   },
   "dependencies": {
