@@ -21,7 +21,7 @@ export abstract class HttpServer extends BaseServer {
         if (config.corsWhitelist) {
             let originFunc = (config.corsWhitelist === true)
                 ? true
-                : (origin, callback) => {
+                : (origin: string, callback: Function) => {
                     const list: string[] = config.corsWhitelist as any;
                     let isOriginWhiteListed = list.indexOf(origin) !== -1;
                     callback(null, isOriginWhiteListed);

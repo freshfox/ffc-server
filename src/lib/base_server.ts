@@ -4,12 +4,12 @@ import {Server} from "http";
 
 export abstract class BaseServer {
 
-    protected server: Server;
+    protected server: Server = null;
 
     constructor(public app: any, protected port: number) {
     }
 
-    abstract configure();
+    abstract configure(): void;
 
     start() {
         this.configure();
@@ -20,8 +20,8 @@ export abstract class BaseServer {
         return new Promise((resolve) => {
             let self = this;
             let server = http.createServer(this.app);
-            server.listen(this.port, function() {
-                self.server = this;
+            server.listen(this.port, () => {
+                self.server = server;
                 resolve();
             });
         });
