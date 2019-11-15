@@ -1,6 +1,6 @@
 import {Container} from 'inversify';
 import {default as express} from 'express';
-import should from 'should';
+import * as should from 'should';
 import {HttpServer, HttpServiceConfig} from "../lib";
 
 describe('HttpServer', function () {

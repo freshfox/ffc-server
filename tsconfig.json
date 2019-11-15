@@ -15,8 +15,7 @@
 		"sourceMap": true,
 		"rootDir": "./src",
 		"experimentalDecorators": true,
-		"emitDecoratorMetadata": true,
-		"esModuleInterop": true
+		"emitDecoratorMetadata": true
 	},
 	"exclude": [
 		"node_modules"
