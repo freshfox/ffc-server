@@ -3,7 +3,7 @@ import {Container} from 'inversify';
 import {default as express} from 'express';
 import should from 'should';
 
-describe('Server', function () {
+describe('BaseServer', function () {
 
     class TestServer extends BaseServer {
 
