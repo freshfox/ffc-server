@@ -1,5 +1,5 @@
 import {Container} from 'inversify';
-import {default as express} from 'express';
+import * as express from 'express';
 import * as should from 'should';
 import {HttpServer, HttpServiceConfig} from "../lib";
 

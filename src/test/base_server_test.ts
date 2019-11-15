@@ -1,6 +1,6 @@
 import {BaseServer} from '../lib/base_server';
 import {Container} from 'inversify';
-import {default as express} from 'express';
+import * as express from 'express';
 import * as should from 'should';
 
 describe('BaseServer', function () {
