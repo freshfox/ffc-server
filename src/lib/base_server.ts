@@ -1,12 +1,13 @@
 import * as http from "http";
 import {Container} from 'inversify';
 import {Server} from "http";
+import {Express} from "express";
 
 export abstract class BaseServer {
 
     protected server: Server = null;
 
-    constructor(public app: any, protected port: number) {
+    constructor(public app: Express, protected port: number) {
     }
 
     abstract configure(): void;
