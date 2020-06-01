@@ -1,6 +1,8 @@
 import {Schema, SchemaLike, ValidationOptions} from "@hapi/joi";
 import * as Joi from "@hapi/joi";
 
+export type TypedSchema<T> = Schema;
+export type SchemaMap<T> = SchemaLike | SchemaLike[] | {[SK in keyof Required<T>]: SchemaMap<T[SK]> }
 export type CreateErrorFunction = (message: string, details: any) => Error;
 
 export class Validator {
@@ -41,25 +43,3 @@ export class Validator {
         this.createError = func;
     }
 }
-
-export type TypedSchema<T> = Schema;
-
-type SchemaMap<T> = SchemaLike | SchemaLike[] | {[SK in keyof Required<T>]: SchemaMap<T[SK]> }
-
-interface Model {
-    name: string;
-    address: {
-        street: string;
-        postal: number;
-        city: string;
-    }
-}
-
-type ValidatorModel = SchemaMap<Model>;
-
-const asd: ValidatorModel = {
-    name: '',
-    address: {
-        street: ''
-    }
-};
