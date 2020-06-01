@@ -18,7 +18,12 @@ export class Validator {
     static async validate<T>(value: T, schema: TypedSchema<T>): Promise<T> {
         try {
             // Await is required here to make try/catch work
-            return await schema.validate(value, this.DEFAULT_OPTIONS) as any;
+            const result = await schema.validate(value, this.DEFAULT_OPTIONS) as any;
+            if (result.error) {
+                // noinspection ExceptionCaughtLocallyJS
+                throw result.error;
+            }
+            return result.value;
         } catch (err) {
             throw this.createError(err.message, err.details);
         }
