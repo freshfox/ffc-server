@@ -1,2 +1,2 @@
 # ffc-server
-Basic HTTP Server with FFC-Node and some default configs
+Basic HTTP Server with some default configs and a validator
