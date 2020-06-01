@@ -1,3 +1,5 @@
+import 'reflect-metadata';
+
 export * from './auth/authenticator';
 export * from './auth/error_factory';
 export * from './auth/json_web_token';
