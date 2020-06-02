@@ -1,9 +1,15 @@
 import {Schema} from "@hapi/joi";
 import * as should from "should";
 import * as flat from 'flat';
-import {Validator} from "../validation/validator";
+import {TypedSchema, Validator} from "../validation/validator";
+
+type AnyValue<T> = { [key in keyof T]: any | T[key] };
 
 export class ValidationTest<T> {
+
+    static create<T>(schema: TypedSchema<T>, validData: T) {
+        return new ValidationTest<T>(schema, validData);
+    }
 
     constructor(private schema: Schema, private validData: T) {
         this.valid(this.validData);
@@ -33,14 +39,14 @@ export class ValidationTest<T> {
         return this;
     }
 
-    invalid(data: Partial<T>) {
+    invalid(data: Partial<AnyValue<T>>) {
         const name = ValidationTest.stringify(data);
         it('test invalid data ' + name, async () => {
-            const error = await should(Validator.validate({
+            const testingData = {
                 ...this.validData,
                 ...data
-            }, this.schema)).rejected();
-            should(error.code).eql(400);
+            };
+            const error = await should(Validator.validate(testingData, this.schema)).rejected();
             const flatten = flat(data);
             const keys = Object.keys(flatten);
             should(error.errors).length(keys.length);

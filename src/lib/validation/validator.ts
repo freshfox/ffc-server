@@ -3,12 +3,24 @@ import * as Joi from "@hapi/joi";
 
 export type TypedSchema<T> = Schema;
 export type SchemaMap<T> = SchemaLike | SchemaLike[] | {[SK in keyof Required<T>]: SchemaMap<T[SK]> }
-export type CreateErrorFunction = (message: string, details: any) => Error;
+export type CreateErrorFunction = (message: string, errors: any) => IValidationError;
+
+export interface IValidationError {
+    errors: any;
+}
+
+export class ValidationError extends Error implements IValidationError {
+
+    constructor(msg: string, public readonly errors: any) {
+        super(msg);
+    }
+
+}
 
 export class Validator {
 
-    private static createError: CreateErrorFunction = (message, details) => {
-        return new Error(message)
+    private static createError: CreateErrorFunction = (message, errors) => {
+        return new ValidationError(message, errors)
     }
 
     private static DEFAULT_OPTIONS: ValidationOptions = {
@@ -35,7 +47,7 @@ export class Validator {
         return Joi;
     }
 
-    static compile<T>(schema: SchemaMap<T>) {
+    static compile<T>(schema: SchemaMap<T>): TypedSchema<T> {
         return Joi.compile(schema)
     }
 
