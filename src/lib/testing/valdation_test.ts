@@ -1,4 +1,4 @@
-import {Schema} from "@hapi/joi";
+import {Schema} from "joi";
 import * as should from "should";
 import * as flat from 'flat';
 import {TypedSchema, Validator} from "../validation/validator";

@@ -1,5 +1,5 @@
-import {Schema, SchemaLike, ValidationOptions} from "@hapi/joi";
-import * as Joi from "@hapi/joi";
+import {Schema, SchemaLike, ValidationOptions, Root} from "joi";
+import * as Joi from "joi";
 
 export type TypedSchema<T> = Schema;
 export type SchemaMap<T> = SchemaLike | SchemaLike[] | {[SK in keyof Required<T>]: SchemaMap<T[SK]> }
@@ -43,7 +43,7 @@ export class Validator {
         }
     }
 
-    static get schema() {
+    static get schema(): Root {
         return Joi;
     }
 
