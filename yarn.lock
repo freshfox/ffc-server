@@ -435,10 +435,10 @@ etag@~1.8.1:
   resolved "https://registry.yarnpkg.com/etag/-/etag-1.8.1.tgz#41ae2eeb65efa62268aebfea83ac7d79299b0887"
   integrity sha1-Qa4u62XvpiJorr/qg6x9eSmbCIc=
 
-express-json-views@^0.2.1:
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/express-json-views/-/express-json-views-0.2.1.tgz#7b0f9c878ead7208ce63cc9fe0b7ad6c69ce2db7"
-  integrity sha512-XzNl13JushM4X+OccnULPZwxpGhSyfDvwVzgCKdKEUFVik30UYbCG4Yd37xueZ4JcxCkC4zF0xb9Cw0VGWmq9g==
+express-json-views@^0.2.2:
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/express-json-views/-/express-json-views-0.2.2.tgz#7495f7e1040b2726f9894d779e74dd7c652039c9"
+  integrity sha512-gZXPbHf4SBVGSG6UhoGRJP/fdxQBCZpFdLEjjDxvbRxfQ1WCBZQpD2dHBMUpMuLNnyd8PIZaWjeyHI6EJrqUoA==
   dependencies:
     bluebird "^3.4.6"
     graceful-fs "^4.1.10"
